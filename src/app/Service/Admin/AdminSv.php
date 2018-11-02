@@ -48,7 +48,13 @@ class AdminSv extends BaseService {
        */
       $admin = $this->findOne(array($this->_acctName => $account));
 
+      $roleSv = new RoleSv();
+
+      $role = $roleSv->findOne($admin['role']);
+
       $sessionData = $this->createSession($admin['id'], 'admin_auth');
+
+      $sessionData['role_auth'] = $role['auth'];
 
       /**
        * 返回访问令牌

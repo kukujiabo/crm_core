@@ -34,7 +34,6 @@ class SalesChangeSv extends BaseService {
 
 		return $svlsv->queryList($query, $data['fields'], $data['order'], $data['page'], $data['page_size']);
 
-
 	}
 
 }

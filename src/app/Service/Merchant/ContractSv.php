@@ -28,7 +28,7 @@ class ContractSv extends BaseService {
 
 		$msv = new MerchantSv();
 
-		$this->update($data['mid'], [ 'type' => $data['type'] ]);
+		$msv->update($data['mid'], [ 'type' => $data['type'] ]);
 
 		return $this->add($newData);
 

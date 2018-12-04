@@ -49,4 +49,10 @@ class MessageDm {
 
 	}
 
+  public function remove($data) {
+  
+    return $this->_msgSv->remove($data['id']);
+  
+  }
+
 }

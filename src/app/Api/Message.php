@@ -2,8 +2,7 @@
 namespace App\Api;
 
 /**
- * 短信相关接口
- *
+ * 短信相关接口 
  */
 class Message extends BaseApi {
 	
@@ -135,13 +134,25 @@ class Message extends BaseApi {
 	/**
 	 * 查询全部短信
 	 * @desc 查询全部短信
-     *
-     * @return array list
+   *
+   * @return array list
 	 */
 	public function getAll() {
 
 		return $this->dm->getAll($this->retriveRuleParams(__FUNCTION__));
 
 	}
+
+  /**
+   * 删除短信 
+   * @desc 删除短信
+   *
+   * @return int id
+   */
+  public function remove() {
+  
+    return $this->dm->remove($this->retriveRuleParams(__FUNCTION__));
+  
+  }
 
 }

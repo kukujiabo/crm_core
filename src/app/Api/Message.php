@@ -65,7 +65,13 @@ class Message extends BaseApi {
 
 
 
-			]
+      ],
+
+      'remove' => [
+      
+        'id' => 'id|int|true||模版id'
+      
+      ]
 
 		]);
 

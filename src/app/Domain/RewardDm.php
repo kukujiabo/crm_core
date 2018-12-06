@@ -3,6 +3,7 @@ namespace App\Domain;
 
 use App\Service\Commodity\RewardSv;
 use App\Service\Commodity\MemberRewardSv;
+use App\Service\Commodity\ProjectStepSv;
 
 class RewardDm {
 
@@ -39,6 +40,16 @@ class RewardDm {
 
     return $detail;
 
+  }
+
+  public function changeStep($data) {
+
+    $this->rwdSv->update($data['id'], [ 'status' => $data['status'] ]);
+
+    $pssv = new ProjectStepSv();
+
+    return $pssv->add([ 'pid' => $data['id'], 'status' => $data['status'], 'created_at' => date('Y-m-d H:i:s'), 'opid' => $data['opid'] ]);
+  
   }
 
 }

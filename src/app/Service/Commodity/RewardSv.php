@@ -46,6 +46,10 @@ class RewardSv extends BaseService {
  
       $id = $this->add($newReward);
 
+      $pssv = new ProjectStepSv();
+
+      $pssv->add([ 'pid' => $id, 'status' => $data['status'], 'created_at' => date('Y-m-d H:i:s'), 'opid' => $data['opid']]);
+
       return $id;
 
   }

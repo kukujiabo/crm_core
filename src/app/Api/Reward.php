@@ -2,7 +2,7 @@
 namespace App\Api;
 
 /**
- * D-1 赠品接口
+ * D-1 项目接口
  *
  * @author Meroc Chen <398515393@qq.com> 2018-06-03
  */
@@ -14,29 +14,39 @@ class Reward extends BaseApi {
 
       'create' => [
       
-        'mid' => 'mid|int|true||品牌id',
-        'reward_name' => 'reward_name|string|true||赠品名称',
-        'brief' => 'brief|string|true||赠品简介',
+        'mid' => 'mid|int|true||客户id',
+        'reward_name' => 'reward_name|string|true||项目名称',
+        'brief' => 'brief|string|true||项目简介',
         'status' => 'status|int|false||状态',
-        'start_time' => 'start_time|string|false||赠品有效期开始'
+        'opid' => 'opid|int|false||操作员id',
+        'start_time' => 'start_time|string|false||项目有效期开始'
       
       ],
+
+      ''
 
       'edit' => [
       
-        'id' => 'id|string|true||赠品id',
-        'mid' => 'mid|int|true||品牌id',
-        'reward_name' => 'reward_name|string|true||赠品名称',
-        'brief' => 'brief|string|true||赠品简介',
+        'id' => 'id|string|true||项目id',
+        'mid' => 'mid|int|true||客户id',
+        'reward_name' => 'reward_name|string|true||项目名称',
+        'brief' => 'brief|string|true||项目简介',
         'status' => 'status|int|false||状态',
-        'start_time' => 'start_time|string|false||赠品有效期开始'
+        'start_time' => 'start_time|string|false||项目有效期开始'
 
       ],
 
+      'changeStep' => [
+      
+        'id' => 'id|int|true||项目id',
+        'status' => 'status|int|true||项目状态',
+        'opid' => 'opid|int|false||操作员id'
+      
+      ],
 
       'listQuery' => [
       
-        'keywords' => 'keywords|string|false||赠品名称',
+        'keywords' => 'keywords|string|false||项目名称',
         'fields' => 'fields|string|false||查询字段',
         'order' => 'order|string|false||排序',
         'page' => 'page|int|false||页码',
@@ -46,7 +56,7 @@ class Reward extends BaseApi {
 
       'getDetail' => [
       
-        'id' => 'id|int|true||赠品id'
+        'id' => 'id|int|true||项目id'
       
       ]
     
@@ -55,8 +65,8 @@ class Reward extends BaseApi {
   }
 
   /**
-   * 新建赠品
-   * @desc 新建赠品
+   * 新建项目
+   * @desc 新建项目
    *
    * @return int id
    */
@@ -67,8 +77,8 @@ class Reward extends BaseApi {
   }
 
   /**
-   * 更新赠品信息
-   * @desc 更新赠品信息
+   * 更新项目信息
+   * @desc 更新项目信息
    *
    * @return int num
    */
@@ -102,5 +112,16 @@ class Reward extends BaseApi {
   
   }
 
+  /**
+   * 修改项目进度状态
+   * @desc 修改项目进度状态
+   *
+   * @return int num
+   */
+  public function changeStep() {
+  
+    return $this->dm->changeStep($this->retriveRuleParams(__FUNCTION__));
+  
+  }
 
 }

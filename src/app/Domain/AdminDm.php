@@ -2,6 +2,7 @@
 namespace App\Domain;
 
 use App\Service\Admin\AdminSv;
+use App\Service\Admin\RoleSv;
 
 /**
  * 管理员处理域
@@ -41,6 +42,10 @@ class AdminDm {
       return NULL;
     
     } else {
+
+      $rsv = new RoleSv();
+
+      $role = $rsv->findOne($info['role']);
     
       $adminInfo = [
       
@@ -48,7 +53,9 @@ class AdminDm {
 
         'avatar' => $info['avatar'],
 
-        'roles' => ['admin']
+        'roles' => ['admin'],
+
+        'auth' => $role['auth']
       
       ];
 
@@ -70,5 +77,16 @@ class AdminDm {
 
   }
 
+  public function getDetail($params) {
+
+    return $this->_asv->getDetail($params);
+
+  }
+
+  public function editAcct($params) {
+
+    return $this->_asv->editAcct($params);
+
+  }
 
 }

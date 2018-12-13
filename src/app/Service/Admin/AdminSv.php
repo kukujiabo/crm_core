@@ -96,6 +96,12 @@ class AdminSv extends BaseService {
 
   }
 
+  public function getDetail($params) {
+
+    return $this->findOne($params['id']);
+
+  }
+
   public function addAcct($params) {
 
     $newData = [
@@ -115,6 +121,37 @@ class AdminSv extends BaseService {
     ];
 
     return $this->add($newData);
+
+  }
+
+  public function editAcct($params) {
+
+    $id = $params['id'];
+
+    $updateData = [];
+
+    if ($params['admin_name']) {
+
+      $updateData['admin_name'] = $params['admin_name'];
+ 
+    }
+    if ($params['account']) {
+
+      $updateData['account'] = $params['account'];
+
+    }
+    if ($params['role']) {
+
+      $updateData['role'] = $params['role'];
+
+    }
+    if ($params['password']) {
+
+      $updateData['password'] = md5($params['password']);
+
+    }
+
+    return $this->update($id, $updateData);
 
   }
 

@@ -23,14 +23,13 @@ class Reward extends BaseApi {
       
       ],
 
-      ''
-
       'edit' => [
       
         'id' => 'id|string|true||项目id',
-        'mid' => 'mid|int|true||客户id',
-        'reward_name' => 'reward_name|string|true||项目名称',
-        'brief' => 'brief|string|true||项目简介',
+        'mid' => 'mid|int|false||客户id',
+        'opid' => 'opid|int|false||操作员id',
+        'reward_name' => 'reward_name|string|false||项目名称',
+        'brief' => 'brief|string|false||项目简介',
         'status' => 'status|int|false||状态',
         'start_time' => 'start_time|string|false||项目有效期开始'
 

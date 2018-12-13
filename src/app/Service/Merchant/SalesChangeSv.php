@@ -12,13 +12,13 @@ class SalesChangeSv extends BaseService {
 
 		$query = [];
 
-		if (isset($data['mid'])) {
+		if ($data['mid']) {
 
 			$query['mid'] = $data['mid'];
 
 		}
 
-		if (isset($data['sales_id'])) {
+		if ($data['sales_id']) {
 
 			$query['sales_id'] = $data['sales_id'];
 

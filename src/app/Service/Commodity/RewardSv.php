@@ -83,6 +83,10 @@ class RewardSv extends BaseService {
     if (isset($data['status'])) {
 
       $updateData['status'] = $data['status'];
+
+      $pssv = new ProjectStepSv();
+
+      $pssv->add([ 'pid' => $id, 'status' => $data['status'], 'created_at' => date('Y-m-d H:i:s'), 'opid' => $data['opid']]);
     
     }
 

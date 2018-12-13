@@ -8,7 +8,7 @@ use App\Service\Components\Wechat\WechatAppSv;
 use App\Service\Resource\ImageSv;
 
 /**
- * 商家服务类
+ * 客户服务类
  *
  * @author Meroc Chen <398515393@qq.com> 2018-04-28
  */
@@ -74,6 +74,11 @@ class MerchantSv extends BaseService {
     if (isset($data['status'])) {
     
       $editData['status'] = $data['status'];
+    
+    }
+    if (isset($data['sales_id'])) {
+    
+      $editData['sales_id'] = $data['sales_id'];
     
     }
 

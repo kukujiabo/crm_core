@@ -3,6 +3,7 @@ namespace App\Domain;
 
 use App\Service\Merchant\MerchantSv;
 use App\Service\Merchant\ShopSv;
+use App\Service\Merchant\SalesChangeSv;
 
 /**
  * 品牌处理域
@@ -24,7 +25,13 @@ class MerchantDm {
    */
   public function create($data) {
   
-    return $this->_msv->create($data);
+    $mid = $this->_msv->create($data);
+
+    $svSv = new SalesChangeSv();
+
+    $svSv->add([ 'mid' => $mid, 'sales_id' => $data['sales_id'], 'created_at' => date('Y-m-d H:i:s') ]);
+
+    return $mid;
   
   }
 
@@ -36,6 +43,14 @@ class MerchantDm {
     $id = $data['id'];
 
     unset($data['id']);
+
+    if ($data['sales_id']) {
+
+      $svSv = new SalesChangeSv();
+
+      $svSv->add([ 'mid' => $id, 'sales_id' => $data['sales_id'], 'created_at' => date('Y-m-d H:i:s') ]);
+
+    }
   
     return $this->_msv->edit($id, $data);
   

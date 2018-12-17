@@ -121,13 +121,7 @@ class MerchantSv extends BaseService {
 
     if ($data['start_date']) {
     
-      $query['created_at'] = "eg|{$data['start_date']}";
-    
-    }
-
-    if ($data['end_date']) {
-    
-      $query['created_at'] = "el|{$data['end_date']}";
+      $query['created_at'] = "eg|{$data['start_date']};el|{$data['end_date']}";
     
     }
 

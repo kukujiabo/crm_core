@@ -105,5 +105,10 @@ class MerchantDm {
   
   }
 
+  public function remove($params) {
+  
+    return $this->_msv->remove($params['id']); 
+  
+  }
 
 }

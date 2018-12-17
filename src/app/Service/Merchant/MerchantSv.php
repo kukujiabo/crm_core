@@ -37,6 +37,7 @@ class MerchantSv extends BaseService {
       'sales_id' => $data['sales_id'],
       'ext_1' => $data['ext_1'],
       'status' => $data['status'],
+      'type' => 1,
       'created_at' => date('Y-m-d H:i:s')
     ];
 

@@ -49,6 +49,18 @@ class ContractSv extends BaseService {
 
 		}
 
+		if (isset($data['type'])) {
+
+      $query['type'] = $data['type'];
+
+		}
+
+    if (isset($data['start_date'])) {
+    
+      $query['created_at'] = "eg|{$data['start_date']};el|{$data['end_date']}"; 
+    
+    }
+
 		$csv = new VContractInfoSv();
 
 		return $csv->queryList($query, $data['fields'], $data['order'], $data['page'], $data['page_size'], $or);

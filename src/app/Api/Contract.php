@@ -29,6 +29,12 @@ class Contract extends BaseApi {
 
 				'keywords' => 'keywords|string|false||关键字',
 
+				'type' => 'type|int|false||分类',
+        
+				'start_date' => 'start_date|string|false||开始时间',
+        
+				'end_date' => 'end_date|string|false||结束时间',
+
 				'fields' => 'fields|string|false||字段',
 
 				'order' => 'order|string|false||排序',

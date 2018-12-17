@@ -69,9 +69,7 @@ class ContractSv extends BaseService {
 
   public function getDetail($data) {
   
-		$csv = new VContractInfoSv();
-  
-    return $csv->findOne($data['id']);
+    return $this->findOne($data['id']);
   
   }
 

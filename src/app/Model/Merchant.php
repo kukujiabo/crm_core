@@ -8,5 +8,10 @@ namespace App\Model;
  */
 class Merchant extends BaseModel {
 
+  protected $_queryOptionRule = [
+  
+    'created_at' => 'range'
+  
+  ];
 
 }

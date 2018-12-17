@@ -67,4 +67,46 @@ class ContractSv extends BaseService {
 
 	}
 
+  public function getDetail($data) {
+  
+		$csv = new VContractInfoSv();
+  
+    return $csv->findOne($data['id']);
+  
+  }
+
+  public function edit($data) {
+  
+    $updateData = [];
+
+    if ($data['title']) {
+    
+      $updateData['title'] = $data['title'];
+    
+    }
+    if ($data['brief']) {
+    
+      $updateData['brief'] = $data['brief'];
+    
+    }
+    if ($data['type']) {
+    
+      $updateData['type'] = $data['type'];
+    
+    }
+    if ($data['mid']) {
+    
+      $updateData['mid'] = $data['mid'];
+    
+    }
+    if ($data['code']) {
+    
+      $updateData['code'] = $data['code'];
+    
+    }
+  
+    return $this->update($data['id'], $updateData);
+  
+  }
+
 }

@@ -11,6 +11,34 @@ class Contract extends BaseApi {
 
 		return $this->rules([
 
+      'getDetail' => [
+      
+        'id' => 'id|int|true||合同id' 
+      
+      ],
+
+      'remove' => [
+
+        'id' => 'id|int|true||合同id' 
+
+      ],
+
+      'edit' => [
+      
+				'id' => 'id|int|true||合同ID',
+
+				'type' => 'type|int|false||合同类型',
+
+				'mid' => 'mid|int|false||客户id',
+
+				'code' => 'code|string|false||合同编号',
+
+				'title' => 'title|string|false||合同标题',
+
+				'brief'  => 'brief|string|false||说明',
+      
+      ],
+
 			'create' => [
 
 				'type' => 'type|int|true||合同类型',
@@ -21,7 +49,7 @@ class Contract extends BaseApi {
 
 				'title' => 'title|string|true||合同标题',
 
-				'brief'  => 'brief|string|false||',
+				'brief'  => 'brief|string|false||说明',
 
 			],
 
@@ -73,5 +101,41 @@ class Contract extends BaseApi {
 		return $this->dm->listQuery($this->retriveRuleParams(__FUNCTION__));
 
 	}
+
+  /**
+   * 查询详情
+   * @desc 查询详情
+   *
+   * @return array data
+   */
+  public function getDetail() {
+  
+    return $this->dm->getDetail($this->retriveRuleParams(__FUNCTION__)); 
+  
+  }
+
+  /**
+   * 删除合同
+   * @desc 删除合同
+   *
+   * @return int num
+   */
+  public function remove() {
+  
+    return $this->dm->remove($this->retriveRuleParams(__FUNCTION__)); 
+  
+  }
+
+  /**
+   * 编辑合同
+   * @desc 编辑合同
+   *
+   * @return int num
+   */
+  public function edit() {
+  
+    return $this->dm->edit($this->retriveRuleParams(__FUNCTION__)); 
+  
+  }
 
 }

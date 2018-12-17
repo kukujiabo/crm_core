@@ -26,4 +26,22 @@ class ContractDm {
 
 	}
 
+  public function getDetail($data) {
+  
+    return $this->_contractSv->getDetail($data);
+  
+  }
+
+  public function remove($data) {
+  
+    return $this->_contractSv->remove($data['id']);
+  
+  }
+
+  public function edit($data) {
+   
+    return $this->_contractSv->edit($data);
+  
+  }
+
 }

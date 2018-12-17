@@ -119,6 +119,18 @@ class MerchantSv extends BaseService {
 
     }
 
+    if (isset($data['cType'])) {
+    
+      $query['type'] = $data['cType'];
+    
+    }
+
+    if (isset($data['status'])) {
+    
+      $query['status'] = $data['status'];
+    
+    }
+
     if ($data['start_date']) {
     
       $query['created_at'] = "eg|{$data['start_date']};el|{$data['end_date']}";

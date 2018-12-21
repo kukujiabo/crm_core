@@ -155,4 +155,21 @@ class AdminSv extends BaseService {
 
   }
 
+
+  public function updatePassword($params) {
+
+    $admin = $this->findOne($params['id']);
+
+    if (md5($params['old_password']) == $admin['password']) {
+
+      return $this->update($params['id'], [ 'password' => md5($params['new_password']) ]);
+
+    } else {
+
+      return 0;
+
+    }
+
+  }
+
 }

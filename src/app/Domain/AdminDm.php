@@ -89,4 +89,10 @@ class AdminDm {
 
   }
 
+  public function updatePassword($params) {
+
+    return $this->_asv->updatePassword($params);
+
+  }
+
 }

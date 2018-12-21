@@ -70,6 +70,16 @@ class Admin extends BaseApi {
 
         'role' => 'role|int|false||角色'
 
+      ],
+
+      'updatePassword' => [
+
+        'id' => 'id|int|true||账号id',
+
+        'password' => 'password|string|true||账号新密码',
+
+        'old_password' => 'old_password|string|true||旧密码'
+
       ]
     
     ]);
@@ -145,6 +155,18 @@ class Admin extends BaseApi {
   public function editAcct() {
 
     return $this->dm->editAcct($this->retriveRuleParams(__FUNCTION__));
+
+  }
+
+  /**
+   * 修改密码
+   * @desc 修改密码
+   *
+   * @return int num
+   */
+  public function updatePassword() {
+
+    return $this->dm->updatePassword($this->retriveRuleParams(__FUNCTION__));
 
   }
 

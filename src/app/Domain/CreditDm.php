@@ -25,5 +25,10 @@ class CreditDm {
 
 	}
 
+	public function remove($data) {
+
+		return $this->_csv->remove($data['id']);
+
+	}
 
 }

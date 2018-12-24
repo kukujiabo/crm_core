@@ -28,8 +28,13 @@ class Credit extends BaseApi {
         'page' => 'page|int|false||页码',
         'page_size' => 'page_size|int|false||每页条数'
 
+  		],
 
-  		]
+      'remove' => [
+
+        'id' => 'id|int|true||额度id'
+
+      ]
 
   	]);
 
@@ -56,6 +61,18 @@ class Credit extends BaseApi {
   public function listQuery() {
 
   	return $this->dm->listQuery($this->retriveRuleParams(__FUNCTION__));
+
+  }
+
+  /**
+   * 删除额度记录
+   * @desc 删除额度记录
+   *
+   * @return int num
+   */
+  public function remove() {
+
+    return $this->dm->remove($this->retriveRuleParams(__FUNCTION__));
 
   }
 

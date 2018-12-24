@@ -16,7 +16,7 @@ class CreditSv extends BaseService {
 
 		$newCredit = [
 
-			'mid' => $data['mid'],
+			'manager_id' => $data['mid'],
 			'credit' => $data['credit'],
 			'rest' => $data['credit'],
 			'start_date' => $data['start_date'],
@@ -33,9 +33,9 @@ class CreditSv extends BaseService {
 
 		$query = [];
 
-		if ($data['mid']) {
+		if ($data['maid']) {
 
-			$query['mid'] = $data['mid'];
+			$query['manager_id'] = $data['maid'];
 
 		}
 

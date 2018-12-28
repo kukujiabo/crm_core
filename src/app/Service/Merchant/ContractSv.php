@@ -22,6 +22,16 @@ class ContractSv extends BaseService {
 
 			'brief' => $data['brief'],
 
+			'sales_id' => $data['sales_id'],
+
+			'money' => $data['money'],
+
+			'sign_date' => $data['sign_date'],
+
+			'expire_date' => $data['expire_date'],
+
+			'chance_id' => $data['chance_id'],
+
 			'created_at' => date('Y-m-d H:i:s')
 
 		];
@@ -105,6 +115,39 @@ class ContractSv extends BaseService {
   
     return $this->update($data['id'], $updateData);
   
+  }
+
+
+  public function getAll($data) {
+
+		$query = [];
+
+		$or = '';
+
+		if ($data['keywords']) {
+
+			$keywords = $data['keywords'];
+
+			$or = " title like '%{$keywords}%' or code like '%{$keywords}%' or mname like '%{$keywords}%' or brief like '%{$keywords}%' ";
+
+		}
+
+		if (isset($data['type'])) {
+
+      $query['type'] = $data['type'];
+
+		}
+
+    if (isset($data['start_date'])) {
+    
+      $query['created_at'] = "eg|{$data['start_date']};el|{$data['end_date']}"; 
+    
+    }
+
+		$csv = new VContractInfoSv();
+
+		return $csv->all($query);
+
   }
 
 }

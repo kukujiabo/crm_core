@@ -95,8 +95,36 @@ class MerchantSv extends BaseService {
    * @return array list
    */
   public function getAll($query, $order, $fields) {
+
+    $query = [];
   
-    return $this->all($query, $order, $fields);
+    if (isset($data['cType'])) {
+    
+      $query['type'] = $data['cType'];
+    
+    }
+
+    if (isset($data['status'])) {
+    
+      $query['status'] = $data['status'];
+    
+    }
+
+    if ($data['start_date']) {
+    
+      $query['created_at'] = "eg|{$data['start_date']};el|{$data['end_date']}";
+    
+    }
+
+    if ($data['sales_id']) {
+
+      $query['sales_id'] = $data['sales_id'];
+      
+    }
+
+    $vmsv = new VSalesMerchantSv();
+    
+    return $vmsv->all($query); 
   
   }
 
@@ -112,13 +140,6 @@ class MerchantSv extends BaseService {
 
     $or = '';
 
-    if ($data['keywords']) {
-
-      $keywords = $data['keywords'];
-
-      $or = " real_name like '%{$keywords}%' or sales_phone like '%{$keywords}%' or phone like '%{$keywords}%' or mname like '%{$keywords}%' or ext_1 like '%{$keywords}%' ";
-
-    }
 
     if (isset($data['cType'])) {
     
@@ -136,6 +157,12 @@ class MerchantSv extends BaseService {
     
       $query['created_at'] = "eg|{$data['start_date']};el|{$data['end_date']}";
     
+    }
+
+    if ($data['sales_id']) {
+
+      $query['sales_id'] = $data['sales_id'];
+
     }
 
     $vmsv = new VSalesMerchantSv();

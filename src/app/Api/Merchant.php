@@ -27,9 +27,9 @@ class Merchant extends BaseApi {
 
       'listQuery' => array(
       
-        'keywords' => 'keywords|string|false||关键字',
         'status' => 'status|int|false||状态',
         'cType' => 'cType|int|false||客户类型',
+        'sales_id' => 'sales_id|int|false||销售员',
         'start_date' => 'start_date|string|false||开始时间',
         'end_date' => 'end_date|string|false||结束时间',
         'status' => 'status|int|false||客户状态',
@@ -50,6 +50,13 @@ class Merchant extends BaseApi {
 
       ),
 
+      'batchSetSales' => [
+
+        'sales_id' => 'sales_id|int|true||销售id',
+        'mids' => 'mids|string|true||客户id'
+
+      ],
+
       'getDetail' => array(
 
         'id' => 'id|int|true||客户id',
@@ -59,6 +66,12 @@ class Merchant extends BaseApi {
 
       'getAll' => array(
 
+        'status' => 'status|int|false||状态',
+        'cType' => 'cType|int|false||客户类型',
+        'sales_id' => 'sales_id|int|false||销售员',
+        'start_date' => 'start_date|string|false||开始时间',
+        'end_date' => 'end_date|string|false||结束时间',
+        'status' => 'status|int|false||客户状态'
 
       ),
 
@@ -134,6 +147,18 @@ class Merchant extends BaseApi {
   
     return $this->dm->edit($this->retriveRuleParams(__FUNCTION__));
   
+  }
+
+  /**
+   * 批量修改客户销售人员
+   * @desc 批量修改客户销售人员
+   *
+   * @return int num
+   */
+  public function batchSetSales() {
+
+    return $this->dm->batchSetSales($this->retriveRuleParams(__FUNCTION__));
+
   }
 
   /**

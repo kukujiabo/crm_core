@@ -19,4 +19,16 @@ class SalesChangeDm {
 
 	}
 
+	public function edit($data) {
+
+		return $this->_scsv->edit($data);
+
+	}
+
+	public function create($data) {
+
+		return $this->_scsv->create($data);
+
+	}
+
 }

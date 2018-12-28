@@ -20,12 +20,28 @@ class TrackDm {
 
 	}	
 
-
 	public function listQuery($data) {
 
 		return $this->_tksv->listQuery($data);
 
 	}
 
+	public function getDetail($data) {
+
+		return $this->_tksv->getDetail($data);
+
+	}
+
+	public function edit($data) {
+
+		return $this->_tksv->edit($data);
+
+	}
+
+	public function getAll($data) {
+
+		return $this->_tksv->getAll($data);
+
+	}
 
 }

@@ -70,29 +70,7 @@ class MerchantDm {
    */
   public function getAll($data) {
 
-    $order = $data['order'];
-
-    $fields = $data['fields'];
-
-    $query = [];
-
-    if ($data['ext_1']) {
-
-      $query['ext_1'] = $data['ext_1'];
-
-    }
-    if ($data['mname']) {
-
-      $query['mname'] = $data['mname'];
-
-    }
-    if ($data['status']) {
-
-      $query['status'] = $data['status'];
-
-    }
-
-    return $this->_msv->getAll($query, $order, $fields);
+    return $this->_msv->getAll($data, $order, $fields);
   
   }
 
@@ -104,6 +82,15 @@ class MerchantDm {
     return $this->_msv->getDetail($params['id']);
   
   }
+
+  public function batchSetSales($params) {
+
+    $condition = [ 'id' => $params['mids'] ];
+
+    return $this->_msv->batchUpdate($condition, [ 'sales_id' => $params['sales_id'] ]);
+
+  }
+
 
   public function remove($params) {
   

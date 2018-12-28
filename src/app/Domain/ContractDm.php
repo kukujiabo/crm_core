@@ -44,4 +44,10 @@ class ContractDm {
   
   }
 
+  public function getAll($data) {
+
+    return $this->_contractSv->getAll($data);
+
+  }
+
 }

@@ -10,7 +10,9 @@ class Merchant extends BaseModel {
 
   protected $_queryOptionRule = [
   
-    'created_at' => 'range'
+    'created_at' => 'range',
+    
+    'id' => 'in'
   
   ];
 

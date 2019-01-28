@@ -18,6 +18,16 @@ class Message extends BaseApi {
 
 			],
 
+			'editTmp' => [
+
+				'id' => 'id|int|true||模版id',
+
+				'tp_name' => 'tp_name|string|false||模版名称',
+
+				'tp_code' => 'tp_code|string|false||模版编码'
+
+			],
+
 			'tmpList' => [
 
 				'tp_name' => 'tp_name|string|false||模版名称',
@@ -39,6 +49,12 @@ class Message extends BaseApi {
 				'mid' => 'mid|int|true||客户id',
 
 				'params' => 'params|string|false||参数'
+
+			],
+
+			'getTmpDetail' => [
+
+				'id' => 'id|int|true||模版id'
 
 			],
 
@@ -86,6 +102,18 @@ class Message extends BaseApi {
 	public function addTmp() {
 
 		return $this->dm->addTmp($this->retriveRuleParams(__FUNCTION__));
+
+	}
+
+	/**
+	 * 编辑模版
+	 * @desc 编辑模版
+	 *
+	 * @return int num
+	 */
+	public function editTmp() {
+
+		return $this->dm->editTmp($this->retriveRuleParams(__FUNCTION__));
 
 	}
 
@@ -159,6 +187,18 @@ class Message extends BaseApi {
   
     return $this->dm->remove($this->retriveRuleParams(__FUNCTION__));
   
+  }
+
+  /**
+   * 查询详情
+   * @desc 查询详情
+   *
+   * @return int id
+   */
+  public function getTmpDetail() {
+
+  	return $this->dm->getTmpDetail($this->retriveRuleParams(__FUNCTION__));
+
   }
 
 }

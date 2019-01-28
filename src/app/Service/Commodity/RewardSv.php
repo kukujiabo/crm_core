@@ -100,6 +100,31 @@ class RewardSv extends BaseService {
   
   }
 
+  public function getAll($data) {
+
+    $query = [];
+
+    if (isset($data['reward_name'])) {
+
+      $query['reward_name'] = $data['reward_name'];
+
+    }
+    if (isset($data['client_id'])) {
+
+      $query['mid'] = $data['client_id'];
+
+    }
+    if (isset($data['start_date']) && $data['end_time']) {
+
+      $query['start_time'] = "eg|{$data['start_date']};el|{$data['end_date']}";
+
+    }
+
+    $vrsSv = new VRewardInfoSv();
+
+    return $vrsSv->all($query);
+
+  }
 
   /**
    * 查询列表
@@ -111,12 +136,21 @@ class RewardSv extends BaseService {
 
     $query = array();
   
-    if (isset($data['keywords'])) {
-    
-      $query['keywords'] = $data['keywords'];
-    
-    }
+    if (isset($data['reward_name'])) {
 
+      $query['reward_name'] = $data['reward_name'];
+
+    }
+    if (isset($data['client_id'])) {
+
+      $query['mid'] = $data['client_id'];
+
+    }
+    if (isset($data['start_date']) && $data['end_time']) {
+
+      $query['start_time'] = "eg|{$data['start_date']};el|{$data['end_date']}";
+
+    }
 
     $vrsSv = new VRewardInfoSv();
   

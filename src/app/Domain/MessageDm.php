@@ -19,6 +19,12 @@ class MessageDm {
 
 	}
 
+	public function editTmp($data) {
+
+		return $this->_msgSv->editTmp($data);
+
+	}
+
 	public function tmpList($data) {
 
 		return $this->_msgSv->tmpList($data);
@@ -53,6 +59,12 @@ class MessageDm {
   
     return $this->_msgSv->remove($data['id']);
   
+  }
+
+  public function getTmpDetail($data) {
+
+  	return $this->_msgSv->getTmpDetail($data);
+
   }
 
 }

@@ -35,6 +35,16 @@ class Reward extends BaseApi {
 
       ],
 
+      'getAll' => [
+
+        'reward_name' => 'reward_name|string|false||项目名称',
+        'client_id' => 'client_id|string|false||客户id',
+        'start_date' => 'start_date|string|false||开始时间',
+        'end_date' => 'end_date|string|false||结束时间',
+        'order' => 'order|string|false||排序'
+
+      ],
+
       'changeStep' => [
       
         'id' => 'id|int|true||项目id',
@@ -45,7 +55,9 @@ class Reward extends BaseApi {
 
       'listQuery' => [
       
-        'keywords' => 'keywords|string|false||项目名称',
+        'mid' => 'mid|string|false||客户id',
+        'status' => 'status|int|false||状态',
+        'reward_name' => 'reward_name|string|false||项目名称',
         'fields' => 'fields|string|false||查询字段',
         'order' => 'order|string|false||排序',
         'page' => 'page|int|false||页码',
@@ -121,6 +133,18 @@ class Reward extends BaseApi {
   
     return $this->dm->changeStep($this->retriveRuleParams(__FUNCTION__));
   
+  }
+
+  /**
+   * 查询全部项目
+   * @desc 查询全部项目
+   *
+   * @return array list
+   */
+  public function getAll() {
+
+    return $this->dm->getAll($this->retriveRuleParams(__FUNCTION__));
+
   }
 
 }

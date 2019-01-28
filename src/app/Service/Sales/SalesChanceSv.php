@@ -15,6 +15,7 @@ class SalesChanceSv extends BaseService {
 
 			'chance_name' => $data['chance_name'],
 			'price' => $data['price'],
+			'contact_type' => $data['contact_type'],
 			'customer_name' => $data['customer_name'],
 			'customer_id' => $data['customer_id'],
 			'deal_date' => $data['deal_date'],
@@ -68,6 +69,16 @@ class SalesChanceSv extends BaseService {
 		if ($data['posibility']) {
 
 			$query['posibility'] = $data['posibility'];
+			
+		}
+		if ($data['next']) {
+
+			$query['next'] = $data['next'];
+
+		}
+		if ($data['contact_type']) {
+
+			$query['contact_type'] = $data['contact_type'];
 			
 		}
 		if ($data['source']) {
@@ -146,6 +157,12 @@ class SalesChanceSv extends BaseService {
 		$updateData['updated_at'] = date('Y-m-d H:i:s');
 
 		return $this->update($id, $updateData);
+
+	}
+
+	public function getDetail($data) {
+
+		return $this->findOne($data['id']);
 
 	}
 

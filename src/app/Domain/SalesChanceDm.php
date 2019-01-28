@@ -37,4 +37,10 @@ class SalesChanceDm {
 
   }
 
+  public function getDetail($data) {
+
+    return $this->_scsv->getDetail($data);
+
+  }
+
 }

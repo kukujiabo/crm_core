@@ -27,6 +27,11 @@ class RewardDm {
   
   }
 
+  public function getAll($data) {
+
+    return $this->rwdSv->getAll($data);
+
+  }
 
   public function listQuery($data) {
   

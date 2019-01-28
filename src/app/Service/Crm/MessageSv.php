@@ -26,6 +26,32 @@ class MessageSv extends BaseService {
 
   }
 
+  public function editTmp($data) {
+
+    $editData = [];
+
+    if ($data['tp_name']) {
+
+      $editData['tp_name'] = $data['tp_name'];
+
+    }
+
+    if ($data['tp_code']) {
+
+      $editData['tp_code'] = $data['tp_code'];
+
+    }
+
+    return $this->update($data['id'], $editData);
+
+  }
+
+  public function getTmpDetail($data) {
+
+    return $this->findOne($data['id']);
+
+  }
+
   public function tmpList($data) {
 
     $query = [];
